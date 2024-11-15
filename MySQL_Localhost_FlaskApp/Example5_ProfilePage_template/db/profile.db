@@ -1,0 +1,29 @@
+CREATE DATABASE profile_app;
+
+USE profile_app;
+
+-- Users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    profession VARCHAR(100),
+    location VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(15)
+);
+
+-- Experiences table
+CREATE TABLE experiences (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    job_title VARCHAR(100),
+    company VARCHAR(100),
+    start_date VARCHAR(20),
+    end_date VARCHAR(20),
+    description TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Insert a sample user
+INSERT INTO users (name, profession, location, email, phone)
+VALUES ('Jane Doe', 'Designer', 'London, UK', 'jane.doe@example.com', '123456789');

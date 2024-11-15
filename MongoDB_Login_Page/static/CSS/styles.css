@@ -1,0 +1,160 @@
+body {
+  background-color: #141414;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  width: 300px;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  background: #333;
+  color: white;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #e50914;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  background-color: #f6121d;
+}
+
+.help-links {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.help-links a {
+  color: #757575;
+  text-decoration: none;
+}
+
+.help-links span {
+  margin: 0 5px;
+}
+
+body {
+  background-color: #141414;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.signup-container {
+  width: 350px;
+  padding: 25px;
+  background-color: #222;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  background: #333;
+  color: white;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #e50914;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.signup-btn:hover {
+  background-color: #f6121d;
+}
+
+.help-links {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.help-links a {
+  color: #757575;
+  text-decoration: none;
+}
+
+.help-links p {
+  margin: 0;
+}
+.flash-messages {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.flash-messages li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.flash-messages .success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.flash-messages .error {
+  background-color: #f44336;
+  color: white;
+}
