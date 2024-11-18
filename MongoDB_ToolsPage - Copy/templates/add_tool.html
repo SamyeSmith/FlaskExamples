@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Tool</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Tool Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="image_url" class="form-label">Image URL</label>
+        <input type="url" class="form-control" id="image_url" name="image_url" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="product_url" class="form-label">Product URL</label>
+        <input type="url" class="form-control" id="product_url" name="product_url" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add Tool</button>
+</form>
+{% endblock %}

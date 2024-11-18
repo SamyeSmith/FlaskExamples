@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mt-4">
+    {% for tool in tools %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="{{ tool.image_url }}" class="card-img-top" alt="{{ tool.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ tool.name }}</h5>
+                <p class="card-text">{{ tool.description[:100] }}...</p>
+                <a href="{{ url_for('tool_details', tool_id=tool._id) }}" class="btn btn-primary">Read More</a>
+                
+                <!-- Comment form directly under the tool -->
+                <form method="POST" action="{{ url_for('add_comment', tool_id=tool._id) }}" class="mt-3">
+                    <h6>Add a Comment</h6>
+                    <div class="mb-2">
+                        <label for="user-{{ tool._id }}" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="user-{{ tool._id }}" name="user" required>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Rating</label>
+                        <div class="star-rating" data-tool-id="{{ tool._id }}">
+                            <input type="radio" name="rating" id="rating-5-{{ tool._id }}" value="5">
+                            <label for="rating-5-{{ tool._id }}">★</label>
+                            <input type="radio" name="rating" id="rating-4-{{ tool._id }}" value="4">
+                            <label for="rating-4-{{ tool._id }}">★</label>
+                            <input type="radio" name="rating" id="rating-3-{{ tool._id }}" value="3">
+                            <label for="rating-3-{{ tool._id }}">★</label>
+                            <input type="radio" name="rating" id="rating-2-{{ tool._id }}" value="2">
+                            <label for="rating-2-{{ tool._id }}">★</label>
+                            <input type="radio" name="rating" id="rating-1-{{ tool._id }}" value="1">
+                            <label for="rating-1-{{ tool._id }}">★</label>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="comment-{{ tool._id }}" class="form-label">Comment</label>
+                        <textarea class="form-control" id="comment-{{ tool._id }}" name="comment" rows="2" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm">Submit Comment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<form method="POST" action="{{ url_for('add_tool') }}" class="mt-5">
+    <h3>Add a New Tool</h3>
+    <div class="mb-3">
+        <label for="name" class="form-label">Tool Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="image_url" class="form-label">Image URL</label>
+        <input type="url" class="form-control" id="image_url" name="image_url" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="product_url" class="form-label">Product URL</label>
+        <input type="url" class="form-control" id="product_url" name="product_url" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add Tool</button>
+</form>
+
+<style>
+    .star-rating {
+        direction: rtl;
+        font-size: 1.5rem;
+        display: inline-flex;
+        cursor: pointer;
+    }
+
+    .star-rating input[type="radio"] {
+        display: none;
+    }
+
+    .star-rating label {
+        color: #ddd;
+    }
+
+    .star-rating input[type="radio"]:checked ~ label {
+        color: #f5c518;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: #f5c518;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ tool.name }}</h2>
+<img src="{{ tool.image_url }}" alt="{{ tool.name }}" class="img-fluid">
+<p>{{ tool.description }}</p>
+<a href="{{ tool.product_url }}" target="_blank" class="btn btn-success">Visit Product</a>
+
+<h3>Comments</h3>
+<ul class="list-group">
+    {% for comment in comments %}
+    <li class="list-group-item">
+        <strong>{{ comment.user }}:</strong> 
+        <span>Rating: {{ comment.rating }}/5</span>
+        <p>{{ comment.comment }}</p>
+    </li>
+    {% else %}
+    <li class="list-group-item">No comments yet.</li>
+    {% endfor %}
+</ul>
+
+<h4>Add a Comment</h4>
+<form method="POST" action="{{ url_for('add_comment', tool_id=tool._id) }}">
+    <div class="mb-3">
+        <label for="user" class="form-label">Name</label>
+        <input type="text" class="form-control" id="user" name="user" required>
+    </div>
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" required>
+    </div>
+    <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
