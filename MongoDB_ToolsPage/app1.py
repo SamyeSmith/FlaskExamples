@@ -6,7 +6,7 @@ from bson.errors import InvalidId  # To handle invalid ObjectId errors
 app = Flask(__name__)
 
 # MongoDB configuration
-client = MongoClient("mongodb+srv://yashcsltu:IF06UkFiiEBNVTxp@cluster0.b99hgkl.mongodb.net/toolsDB")
+client = MongoClient("mongodb+srv://2405327:Samye1234@cluster0.jzy7v.mongodb.net/toolsDB")
 db = client.toolsDB
 tools_collection = db.tools
 comments_collection = db.comments
